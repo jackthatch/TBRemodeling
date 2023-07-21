@@ -35,18 +35,22 @@
 
 	<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 		<svelte:fragment slot="lead">
-			<a href="/" class="card p-4 rounded-full variant-glass-tertiary">Top Tier Beast Remodeling</a>
+			<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold space-x-3">Top Tier Beast Remodeling (icon here)</a>
 		</svelte:fragment>
 
 		 {#if !isMobile}
 			<div class="font-bold p-1 space-x-3">
-				<a href="about" class="card p-4 rounded-full variant-glass-tertiary">About</a>
-				<a href="gallery" class="card p-4 rounded-full variant-glass-tertiary">Gallery</a>
-				<a href="contact" class="card p-4 rounded-full variant-glass-tertiary">Contact</a>
+				<a href="about" class="card p-4 rounded-full variant-glass-primary">About</a>
+				<a href="gallery" class="card p-4 rounded-full variant-glass-primary">Gallery</a>
+				<a href="contact" class="card p-4 rounded-full variant-glass-primary">Contact</a>
 			</div>
 		  {/if}
 		
-		<svelte:fragment slot="trail">(actions)</svelte:fragment>
+		<svelte:fragment slot="trail">
+			{#if !isMobile}
+			<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold">Optional Button</a>
+			{/if}
+		</svelte:fragment>
 	</AppBar>
 
 	</svelte:fragment>
@@ -63,7 +67,7 @@
 		
 		<div class="logo-cloud grid-cols-1 lg:!grid-cols-2 gap-1">
 			<a class="logo-item" href="https://www.instagram.com/toptierbeastremodelinginc/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank">
-				<span class="h-16 w-16">
+				<span class="h-16 w-16 y">
 					<img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram Icon">
 				</span>
 				<span>Instagram</span>
