@@ -11,8 +11,17 @@
         <h1 class="card p-4 my-4 text-center flex justify-center"> Reach us at XXX-XXX-XXXX during weekdays from 9:00am - 5:00pm (preferred)<br><br> Otherwise you can submit an email inquiry below</h1>
     </div>
 
-    <div>
-        <h1 class="card p-4 text-center flex justify-center"> Placeholder for form where users can submit email inquiry</h1>
+    <div class="card p-4 container h-1/2 mx-auto gap-4 flex flex-col py-4">
+        <h1> Full Name </h1>
+        <input class="input" type="text" placeholder="Full Name..." name="title" />
+        <h1> Email </h1>
+        <input class="input" type="text" placeholder="Email..." name="title" />
+        <h1> Phone Number </h1>
+        <input class="input" type="text" placeholder="Phone Number..." name="title" />
+        <h1> Describe the work that you are looking for </h1>
+        <textarea name="content" class="textarea h-96" rows="4" placeholder="Fencing in my yard... Redoing my roof... etc..."></textarea>
+    
+        <button type="submit" class="btn variant-ghost-primary self-end"> Submit </button>
     </div>
     
 </main>

@@ -10,7 +10,7 @@
 
     <div class="card p-4 text-center flex justify-center">
         <p> Welcome to Top Tier Beast Remodeling Inc., your home remodeling experts located in Decatur, Alabama and serving the surrounding communities. 
-            We specialize in roofing, fencing, flooring, and wall painting, transforming houses into 
+            We specialize in roofing, fencing, flooring, and painting, transforming houses into 
             personalized havens. Our team of skilled professionals is dedicated to delivering excellence 
             in every project, making your dream home a reality. From sturdy roofs to elegant fences,
              vibrant walls, and comfortable flooring, we take pride in curating spaces that reflect your 
