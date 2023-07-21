@@ -48,7 +48,7 @@
 		
 		<svelte:fragment slot="trail">
 			{#if !isMobile}
-			<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold">Optional Button</a>
+				<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold">Optional Button</a>
 			{/if}
 		</svelte:fragment>
 	</AppBar>
@@ -65,17 +65,17 @@
 
 	<svelte:fragment slot="footer">
 		
-		<div class="logo-cloud grid-cols-1 lg:!grid-cols-2 gap-1">
+		<div class="logo-cloud grid-cols-1 lg:!grid-cols-1 gap-1">
 			<a class="logo-item" href="https://www.instagram.com/toptierbeastremodelinginc/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank">
 				<span class="h-16 w-16 y">
 					<img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram Icon">
 				</span>
 				<span>Instagram</span>
 			</a>
-			<a class="logo-item" href="/">
+			<!-- <a class="logo-item" href="/">
 				<span>(Other Icon)</span>
 				<span>Other Title</span>
-			</a>
+			</a> -->
 			<!-- ... -->
 		</div>
 
