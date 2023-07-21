@@ -8,7 +8,7 @@
 
     <h1 class="p-4 text-center flex justify-center font-bold"> About Us </h1>
 
-    <div class="card p-4 text-center flex justify-center">
+    <div class="card p-4 text-center flex justify-center container h-1/2 mx-auto gap-4 flex flex-col py-4">
         <p> Welcome to Top Tier Beast Remodeling Inc., your home remodeling experts located in Decatur, Alabama and serving the surrounding communities. 
             We specialize in roofing, fencing, flooring, and painting, transforming houses into 
             personalized havens. Our team of skilled professionals is dedicated to delivering excellence 
