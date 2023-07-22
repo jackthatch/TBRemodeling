@@ -1,6 +1,22 @@
-<script>
-
-
+<script lang='ts'>
+    import { onMount } from "svelte";
+    let fullName: string = '';
+    let email: string = '';
+    let phoneNumber: string = '';
+    let description: string = '';
+  
+    async function handleSubmit() {
+      const response = await fetch('/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ full_name: fullName, email, phone_number: phoneNumber, description }),
+      });
+  
+      const data = await response.json();
+      alert(data.message);
+    }
 </script>
 
 <main>
@@ -9,7 +25,7 @@
     </div>
 
     <div>
-        <h1 class="card p-4 my-4 text-center flex justify-center container h-1/2 mx-auto gap-4 flex flex-col py-4"> Reach us at XXX-XXX-XXXX during weekdays from 9:00am - 5:00pm (preferred)<br><br> Otherwise you can submit an email inquiry below</h1>
+        <h1 class="card p-4 my-4 text-center flex justify-center container h-1/2 mx-auto gap-4 flex flex-col py-4"> Reach us at XXX-XXX-XXXX during weekdays from 9:00am - 5:00pm (preferred)<br><br> Otherwise you can submit an email inquiry below. </h1>
     </div>
 
     <div class="card p-4 container h-1/2 mx-auto gap-4 flex flex-col py-4">
@@ -22,7 +38,7 @@
         <h1> Describe the work that you are looking for </h1>
         <textarea name="content" class="textarea h-48" rows="4" placeholder="Fencing in my yard, Fixing my roof, etc..."></textarea>
     
-        <button type="submit" class="btn variant-ghost-primary self-end"> Submit </button>
+        <button type="submit" class="btn variant-ghost-primary self-end" on:click={handleSubmit}> Submit </button>
     </div>
     
 </main>
