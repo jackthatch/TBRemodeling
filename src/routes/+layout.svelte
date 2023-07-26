@@ -1,12 +1,10 @@
 <script lang='ts'>
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-	// The ordering of these imports is critical to your app working properly
+	import { AppShell, AppBar, Drawer, drawerStore } from '@skeletonlabs/skeleton';
 	import '@skeletonlabs/skeleton/themes/theme-crimson.css';
-	// If you have source.organizeImports set to true in VSCode, then it will auto change this ordering
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
-	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 	import { onMount } from 'svelte';
+	import Navigation from '$lib/components/Navigation.svelte';
 
 
 	let isMobile = false;
@@ -25,41 +23,76 @@
 		mediaQuery.removeListener(updateIsMobile);
 	  };
 	});
+
+	async function openDrawer() {
+		drawerStore.open();
+	}
 	
 </script>
+
+<Drawer>
+	<Navigation />
+</Drawer>
+
+
 
 
 <AppShell>
 
 	<svelte:fragment slot='header'>
 
+	<!-- Original AppBar for desktop -->
+	{#if !isMobile}
 	<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
-		<svelte:fragment slot="lead">
-			<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold space-x-3">Top Tier Beast Remodeling (icon here)</a>
-		</svelte:fragment>
-
-		 {#if !isMobile}
-			<div class="font-bold p-1 space-x-3">
-				<a href="about" class="card p-4 rounded-full variant-glass-primary">About</a>
-				<a href="gallery" class="card p-4 rounded-full variant-glass-primary">Gallery</a>
-				<a href="contact" class="card p-4 rounded-full variant-glass-primary">Contact</a>
-			</div>
-		  {/if}
-		
-		<svelte:fragment slot="trail">
-			{#if !isMobile}
-				<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold">Optional Button</a>
-			{/if}
-		</svelte:fragment>
+	<svelte:fragment slot="lead">
+		<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold space-x-3">Top Tier Beast Remodeling (logo here)</a>
+	</svelte:fragment>
+	<div class="font-bold p-1 space-x-3">
+		<a href="about" class="card p-4 rounded-full variant-glass-primary">About</a>
+		<a href="gallery" class="card p-4 rounded-full variant-glass-primary">Gallery</a>
+		<a href="contact" class="card p-4 rounded-full variant-glass-primary">Contact</a>
+	</div>
+	<svelte:fragment slot="trail">
+		<!-- Optional button for non-mobile screens -->
+		<button on:click={openDrawer}>
+		<span class="">
+			<svg viewBox="0 0 100 80" class="fill-token w-4 h-4">
+			<rect width="100" height="20" />
+			<rect y="30" width="100" height="20" />
+			<rect y="60" width="100" height="20" />
+			</svg>
+		</span>
+		</button>
+	</svelte:fragment>
 	</AppBar>
+	{/if}
+
+	<!-- AppBar with only burger menu button for mobile screens -->
+	{#if isMobile}
+	<AppBar slotTrail="place-content-end">
+	<svelte:fragment slot="lead">
+		<a href="/" class="card p-4 rounded-full variant-glass-primary font-bold space-x-3">Top Tier Beast Remodeling</a>
+	</svelte:fragment>
+	<svelte:fragment slot="trail">
+		<div class="font-bold p-1 space-x-3">
+		<button class="md:hidden btn btn-sm mr-4" on:click={openDrawer}>
+			<span>
+			<svg viewBox="0 0 100 80" class="fill-token w-4 h-4">
+				<rect width="100" height="20" />
+				<rect y="30" width="100" height="20" />
+				<rect y="60" width="100" height="20" />
+			</svg>
+			</span>
+		</button>
+		</div>
+	</svelte:fragment>
+	</AppBar>
+	{/if}
+
+	  
 
 	</svelte:fragment>
 
-	
-
-	<!-- <svelte:fragment slot="pageHeader">
-		<h1>Header</h1>
-	</svelte:fragment> -->
 
 	<slot />
 
